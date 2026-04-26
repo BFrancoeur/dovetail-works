@@ -5,13 +5,9 @@ const nextConfig: NextConfig = {
   output: 'standalone',
   experimental: {
     reactCompiler: false,
-  },
-  serverActions: {
-    allowedOrigins: [
-      'localhost:8080',
-      'localhost:8443',
-      'localhost:3000',
-    ],
+    serverActions: {
+      allowedOrigins: ['localhost:8080', 'localhost:8443', 'localhost:3000'],
+    },
   },
 }
 
