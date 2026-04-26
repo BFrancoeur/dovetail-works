@@ -4,8 +4,15 @@ import { lexicalEditor } from '@payloadcms/richtext-lexical'
 import { nodemailerAdapter } from '@payloadcms/email-nodemailer'
 import path from 'path'
 import { fileURLToPath } from 'url'
+
 import { Users } from './collections/Users'
 import { Media } from './collections/Media'
+import { Pages } from './collections/Pages'
+import { Posts } from './collections/Posts'
+import { Testimonials } from './collections/Testimonials'
+import { DiagnosticSubmissions } from './collections/DiagnosticSubmissions'
+import { SiteSettings } from './globals/SiteSettings'
+import { MainNav } from './globals/MainNav'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -35,19 +42,17 @@ export default buildConfig({
     user: 'users',
   },
 
-  collections: [Users, Media],
+  collections: [Users, Media, Pages, Posts, Testimonials, DiagnosticSubmissions],
+
+  globals: [SiteSettings, MainNav],
 
   upload: {
     limits: {
-      fileSize: 100_000_000, // 100 MB — matches nginx client_max_body_size
+      fileSize: 100_000_000,
     },
   },
 
   typescript: {
     outputFile: path.resolve(dirname, 'payload-types.ts'),
-  },
-
-  graphQL: {
-    schemaOutputFile: path.resolve(dirname, 'generated-schema.graphql'),
   },
 })
