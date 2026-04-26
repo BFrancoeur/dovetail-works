@@ -1,0 +1,123 @@
+.section {
+  background-color: var(--color-surface);
+}
+
+.header {
+  text-align: center;
+  margin-bottom: var(--space-2xl);
+}
+
+.heading {
+  font-size: var(--font-size-h2);
+  color: var(--color-text);
+  margin-bottom: var(--space-md);
+}
+
+.subheading {
+  font-size: var(--font-size-base);
+  color: var(--color-text-muted);
+  max-width: 52ch;
+  margin-inline: auto;
+  line-height: var(--line-height-loose);
+}
+
+.steps {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-md);
+  margin-bottom: var(--space-2xl);
+}
+
+@media (min-width: 768px) {
+  .steps {
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: center;
+  }
+}
+
+.stepWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+@media (min-width: 768px) {
+  .stepWrapper {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
+.step {
+  background: var(--color-background);
+  border-radius: var(--border-radius-md);
+  padding: var(--space-xl) var(--space-lg);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-sm);
+  box-shadow: var(--shadow-sm);
+  max-width: 260px;
+}
+
+.iconWrap {
+  width: var(--icon-container-md);
+  height: var(--icon-container-md);
+  border-radius: var(--border-radius-full);
+  background-color: var(--color-icon-bg-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--space-xs);
+}
+
+.icon {
+  font-size: var(--icon-svg-lg);
+}
+
+.stepTitle {
+  font-size: var(--font-size-h4);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text);
+  line-height: var(--line-height-snug);
+}
+
+.stepDescription {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  line-height: var(--line-height-base);
+  max-width: none;
+}
+
+.arrow {
+  font-size: 1.5rem;
+  color: var(--color-secondary);
+  font-weight: var(--font-weight-bold);
+  flex-shrink: 0;
+}
+
+.footer {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-md);
+  padding-top: var(--space-xl);
+  border-top: var(--border-width-sm) solid var(--color-border);
+}
+
+.footerText {
+  font-size: var(--font-size-base);
+  color: var(--color-text-med-muted);
+  max-width: none;
+}
+
+.footnote {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  max-width: none;
+}

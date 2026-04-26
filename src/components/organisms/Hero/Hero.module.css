@@ -1,0 +1,87 @@
+.hero {
+  position: relative;
+  min-height: 560px;
+  display: flex;
+  align-items: center;
+  background-image: url('/images/hero-kitchen.jpg');
+  background-size: cover;
+  background-position: center;
+  background-color: var(--color-dark-neutral); /* fallback */
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(14, 18, 24, 0.88) 0%,
+    rgba(14, 18, 24, 0.70) 55%,
+    rgba(14, 18, 24, 0.30) 100%
+  );
+}
+
+.content {
+  position: relative;
+  z-index: var(--z-raised);
+  padding-block: var(--space-4xl);
+  max-width: 680px;
+}
+
+.eyebrow {
+  font-family: var(--font-body);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: var(--letter-spacing-wider);
+  text-transform: uppercase;
+  color: var(--color-secondary);
+  margin-bottom: var(--space-md);
+}
+
+.headline {
+  font-size: var(--font-size-h1);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-inverse);
+  line-height: var(--line-height-tight);
+  letter-spacing: var(--letter-spacing-tight);
+  margin-bottom: var(--space-lg);
+}
+
+.accent {
+  color: var(--color-secondary);
+}
+
+.subheadline {
+  font-size: var(--font-size-base);
+  color: var(--color-text-on-hero);
+  line-height: var(--line-height-loose);
+  margin-bottom: var(--space-xl);
+  max-width: 56ch;
+}
+
+.ctas {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  margin-bottom: var(--space-xl);
+}
+
+@media (min-width: 640px) {
+  .ctas {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-size: var(--font-size-xs);
+  color: var(--color-text-on-hero-muted);
+  line-height: var(--line-height-snug);
+}
+
+.badgeIcon {
+  font-size: 1.25rem;
+  opacity: 0.8;
+}

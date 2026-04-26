@@ -1,0 +1,14 @@
+.item {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-sm);
+  font-size: var(--font-size-base);
+  color: var(--color-text);
+}
+
+.icon {
+  flex-shrink: 0;
+  color: var(--color-secondary);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-base);
+}

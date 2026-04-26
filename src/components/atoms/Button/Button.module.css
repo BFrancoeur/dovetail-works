@@ -1,0 +1,72 @@
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-family: var(--font-body);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: var(--letter-spacing-wide);
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 2px solid transparent;
+  border-radius: var(--border-radius-sm);
+  cursor: pointer;
+  transition: background-color var(--transition-fast),
+              color var(--transition-fast),
+              border-color var(--transition-fast);
+  white-space: nowrap;
+}
+
+/* Sizes */
+.md {
+  font-size: var(--font-size-sm);
+  padding: var(--space-sm) var(--space-lg);
+}
+
+.lg {
+  font-size: var(--font-size-base);
+  padding: var(--space-md) var(--space-xl);
+}
+
+/* Variants */
+.primary {
+  background-color: var(--color-secondary);
+  color: var(--color-dark-neutral);
+  border-color: var(--color-secondary);
+}
+
+.primary:hover {
+  background-color: var(--color-secondary-hover);
+  border-color: var(--color-secondary-hover);
+}
+
+.secondary {
+  background-color: transparent;
+  color: var(--color-text-inverse);
+  border-color: var(--color-text-inverse);
+}
+
+.secondary:hover {
+  background-color: rgba(252, 255, 240, 0.10);
+}
+
+.outline-light {
+  background-color: transparent;
+  color: var(--color-secondary);
+  border-color: var(--color-secondary);
+}
+
+.outline-light:hover {
+  background-color: var(--color-secondary);
+  color: var(--color-dark-neutral);
+}
+
+.outline-dark {
+  background-color: transparent;
+  color: var(--color-dark-neutral);
+  border-color: var(--color-dark-neutral);
+}
+
+.outline-dark:hover {
+  background-color: var(--color-dark-neutral);
+  color: var(--color-text-inverse);
+}
