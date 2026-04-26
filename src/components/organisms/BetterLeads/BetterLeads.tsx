@@ -14,13 +14,13 @@ const features = [
     icon: '⚡',
     iconBg: 'secondary' as const,
     title: 'Faster Response',
-    description: 'Leads are contacted quickly—so good opportunities don't go cold.',
+    description: "Leads are contacted quickly—so good opportunities don't go cold.",
   },
   {
     icon: '✅',
     iconBg: 'accent-3' as const,
     title: 'Pre-Qualified',
-    description: 'Basic details are handled up front, so you're not chasing dead ends.',
+    description: "Basic details are handled up front, so you're not chasing dead ends.",
   },
   {
     icon: '🔄',

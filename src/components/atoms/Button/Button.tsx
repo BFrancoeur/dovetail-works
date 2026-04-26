@@ -2,7 +2,7 @@ import type { AnchorHTMLAttributes, ButtonHTMLAttributes } from 'react'
 import styles from './Button.module.css'
 
 type BaseProps = {
-  variant?: 'primary' | 'secondary' | 'outline-light' | 'outline-dark'
+  variant?: 'primary' | 'secondary' | 'outline-light' | 'outline-dark' | 'outline-teal'
   size?: 'md' | 'lg'
   children: React.ReactNode
 }

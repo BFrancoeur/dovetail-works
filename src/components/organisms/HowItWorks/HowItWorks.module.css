@@ -31,7 +31,7 @@
 @media (min-width: 768px) {
   .grid {
     grid-template-columns: 1fr 1fr;
-    align-items: center;
+    align-items: stretch;
   }
 }
 
@@ -43,7 +43,7 @@
 
 .imageWrap {
   position: relative;
-  min-height: 400px;
+  min-height: 300px; /* mobile fallback before image loads */
   border-radius: var(--border-radius-lg);
   overflow: hidden;
   background-color: var(--color-primary-extra-pale);
@@ -51,7 +51,7 @@
 
 .image {
   object-fit: cover;
-  object-position: center top;
+  object-position: 35% center; /* anchors subject slightly left of center */
 }
 
 .footer {

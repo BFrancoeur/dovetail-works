@@ -14,13 +14,13 @@ const features = [
     icon: '⚡',
     iconBg: 'secondary' as const,
     title: 'Respond Fast',
-    description: 'Every lead gets a quick response—even when you're on a job.',
+    description: "Every lead gets a quick response—even when you're on a job.",
   },
   {
     icon: '🔍',
     iconBg: 'accent-3' as const,
     title: 'Filter Early',
-    description: 'Know who's worth your time before the conversation goes too far.',
+    description: "Know who's worth your time before the conversation goes too far.",
   },
 ]
 

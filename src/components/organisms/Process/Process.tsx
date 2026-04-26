@@ -10,7 +10,7 @@ const steps = [
   {
     icon: '🔎',
     title: 'Walk Through Your Leads',
-    description: 'We look at what you're currently getting and where things are breaking down.',
+    description: "We look at what you're currently getting and where things are breaking down.",
   },
   {
     icon: '📋',

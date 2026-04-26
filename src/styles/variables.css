@@ -12,11 +12,12 @@
   --color-primary:              #42597B;  /* Dusk Blue     */
   --color-primary-pale:         #91A0B7;  /* Cool Steel    */
   --color-primary-extra-pale:   #B8C0CC;  /* Pale Slate    */
-  --color-secondary:            #db9c08;  /* Goldenrod     */
-  --color-secondary-hover:      #C08806;  /* Dark Goldenrod */
+  --color-secondary:            #ff9100;  /* Orange-yellow */
+  --color-secondary-hover:      #ffb000;  /* Yellow hover  */
   --color-tertiary:             #3C753A;  /* Fern          */
   --color-tertiary-muted:       #6B9765;  /* Sage Green    */
   --color-accent-3:             #437164;  /* Deep Teal     */
+  --color-accent-3-hover:       #6baf9c;  /* Deep Teal hover */
   --color-theme-accent-2:       #FB9113;  /* Deep Saffron  */
   --color-theme-accent-2-hover: #FDAC48;  /* Orange        */
   --color-theme-accent-3:       #FBDA03;  /* Bright Gold   */

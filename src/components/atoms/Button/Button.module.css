@@ -70,3 +70,14 @@
   background-color: var(--color-dark-neutral);
   color: var(--color-text-inverse);
 }
+
+.outline-teal {
+  background-color: transparent;
+  color: var(--color-accent-3);
+  border-color: var(--color-accent-3);
+}
+
+.outline-teal:hover {
+  background-color: var(--color-accent-3);
+  color: var(--color-text-inverse);
+}
