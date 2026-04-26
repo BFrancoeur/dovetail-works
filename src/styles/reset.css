@@ -17,9 +17,9 @@ html {
 
 body {
   font-family: var(--font-body);
-  font-size: var(--text-base);
-  font-weight: var(--font-weight-regular);
-  line-height: var(--line-height-normal);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-normal);
+  line-height: var(--line-height-base);
   color: var(--color-text);
   background-color: var(--color-background);
   -webkit-font-smoothing: antialiased;
@@ -34,12 +34,12 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--color-text);
 }
 
-h1 { font-size: var(--text-4xl); }
-h2 { font-size: var(--text-3xl); }
-h3 { font-size: var(--text-2xl); }
-h4 { font-size: var(--text-xl); }
-h5 { font-size: var(--text-lg); }
-h6 { font-size: var(--text-base); font-weight: var(--font-weight-semibold); }
+h1 { font-size: var(--font-size-h1); }
+h2 { font-size: var(--font-size-h2); }
+h3 { font-size: var(--font-size-h3); }
+h4 { font-size: var(--font-size-h4); }
+h5 { font-size: var(--font-size-base); font-weight: var(--font-weight-semibold); }
+h6 { font-size: var(--font-size-sm);  font-weight: var(--font-weight-semibold); }
 
 p { max-width: 70ch; }
 

@@ -5,17 +5,21 @@
 
 .container {
   width: 100%;
-  max-width: var(--container-max);
+  max-width: var(--content-width);
   margin-inline: auto;
   padding-inline: var(--container-px);
 }
 
 .container--prose {
-  max-width: var(--container-prose);
+  max-width: var(--content-width-narrow);
+}
+
+.container--wide {
+  max-width: var(--content-width-wide);
 }
 
 .section {
-  padding-block: var(--section-padding-y);
+  padding-block: var(--space-section);
 }
 
 .section--light { background-color: var(--color-surface); }
