@@ -1,0 +1,33 @@
+# dependencies
+node_modules/
+
+# Next.js
+.next/
+out/
+
+# Payload
+src/payload-types.ts
+src/generated-schema.graphql
+src/app/(payload)/admin/importMap.js
+
+# build output
+dist/
+build/
+
+# env — never commit secrets
+.env
+.env.local
+.env.production
+
+# uploads
+public/media/
+
+# SSL certs — generate locally, never commit
+nginx/certs/*.pem
+nginx/certs/*.crt
+nginx/certs/*.key
+
+# misc
+*.log
+.DS_Store
+coverage/

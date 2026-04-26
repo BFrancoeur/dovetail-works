@@ -1,0 +1,53 @@
+import { buildConfig } from 'payload'
+import { postgresAdapter } from '@payloadcms/db-postgres'
+import { lexicalEditor } from '@payloadcms/richtext-lexical'
+import { nodemailerAdapter } from '@payloadcms/email-nodemailer'
+import path from 'path'
+import { fileURLToPath } from 'url'
+import { Users } from './collections/Users'
+import { Media } from './collections/Media'
+
+const filename = fileURLToPath(import.meta.url)
+const dirname = path.dirname(filename)
+
+export default buildConfig({
+  secret: process.env.PAYLOAD_SECRET ?? '',
+
+  db: postgresAdapter({
+    pool: {
+      connectionString: process.env.DATABASE_URI ?? '',
+    },
+  }),
+
+  editor: lexicalEditor({}),
+
+  email: nodemailerAdapter({
+    defaultFromAddress: process.env.SMTP_FROM ?? 'noreply@localhost',
+    defaultFromName: 'Dovetail Works',
+    transportOptions: {
+      host: process.env.SMTP_HOST ?? 'mailpit',
+      port: Number(process.env.SMTP_PORT ?? 1025),
+      ignoreTLS: true,
+    },
+  }),
+
+  admin: {
+    user: 'users',
+  },
+
+  collections: [Users, Media],
+
+  upload: {
+    limits: {
+      fileSize: 100_000_000, // 100 MB — matches nginx client_max_body_size
+    },
+  },
+
+  typescript: {
+    outputFile: path.resolve(dirname, 'payload-types.ts'),
+  },
+
+  graphQL: {
+    schemaOutputFile: path.resolve(dirname, 'generated-schema.graphql'),
+  },
+})

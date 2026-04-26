@@ -1,0 +1,16 @@
+services:
+  app:
+    build:
+      target: prod
+    restart: unless-stopped
+    volumes:
+      - media_uploads:/app/public/media
+
+  postgres:
+    restart: unless-stopped
+
+  redis:
+    restart: unless-stopped
+
+  nginx:
+    restart: unless-stopped
