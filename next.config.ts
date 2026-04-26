@@ -6,6 +6,13 @@ const nextConfig: NextConfig = {
   experimental: {
     reactCompiler: false,
   },
+  serverActions: {
+    allowedOrigins: [
+      'localhost:8080',
+      'localhost:8443',
+      'localhost:3000',
+    ],
+  },
 }
 
 export default withPayload(nextConfig)
