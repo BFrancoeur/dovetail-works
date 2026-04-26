@@ -5,15 +5,18 @@ RUN addgroup --system --gid 1001 nodejs && \
     adduser --system --uid 1001 nextjs
 
 # ── deps ──────────────────────────────────────────────────────────────────────
+# npm install is used here instead of npm ci so a package-lock.json is generated
+# on first build. Once the lockfile is committed, switch back to: npm ci
 FROM base AS deps
 COPY package.json package-lock.json* ./
-RUN npm ci
+RUN npm install --legacy-peer-deps
 
 # ── dev ───────────────────────────────────────────────────────────────────────
+# Run as root in dev so the bind-mounted project dir and .next volume are writable.
+# The non-root user is enforced in the prod stage.
 FROM base AS dev
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
-USER nextjs
 EXPOSE 3000
 CMD ["npm", "run", "dev"]
 
