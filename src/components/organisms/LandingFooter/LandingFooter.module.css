@@ -1,0 +1,95 @@
+.footer {
+  background-color: var(--color-dark-neutral);
+  color: var(--color-text-inverse);
+}
+
+.inner {
+  text-align: center;
+  padding-block: var(--space-3xl);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.logo {
+  font-family: var(--font-heading);
+  font-size: var(--font-size-h2);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-inverse);
+  max-width: none;
+}
+
+.tagline {
+  font-size: var(--font-size-base);
+  color: var(--color-text-on-hero-muted);
+  max-width: none;
+}
+
+.tagline em {
+  font-style: italic;
+  color: var(--color-secondary);
+}
+
+.cities {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-on-hero-muted);
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-xs);
+  margin-top: var(--space-sm);
+  max-width: none;
+}
+
+.phone {
+  font-size: var(--font-size-sm);
+  max-width: none;
+}
+
+.phone a {
+  color: var(--color-text-on-hero-muted);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.phone a:hover {
+  color: var(--color-secondary);
+}
+
+.pipe {
+  color: var(--color-border-on-dark);
+  margin-inline: var(--space-xs);
+}
+
+/* Bottom bar */
+.bar {
+  border-top: var(--border-width-sm) solid var(--color-border-on-dark);
+  padding-block: var(--space-md);
+}
+
+.links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+}
+
+.linkGroup {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+.link {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-on-hero-muted);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.link:hover {
+  color: var(--color-secondary);
+}

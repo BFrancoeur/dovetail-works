@@ -202,17 +202,9 @@ export function DiagnosticsForm() {
         onClick={handleNext}
         disabled={!stepIsComplete() || submitting}
       >
-        {submitting
-          ? 'Preparing your report…'
-          : isLastStep
-          ? 'See My Lead Flow Breakdown →'
-          : `Continue to Step ${step + 2} →`}
+        {submitting ? 'Preparing your breakdown…' : 'See My Lead Flow Breakdown →'}
       </button>
-      <p className={styles.ctaNote}>
-        {isLastStep
-          ? 'Takes 2–3 minutes. No spam. Just clarity.'
-          : `Step ${step + 1} of ${totalSteps} — No spam. Just clarity.`}
-      </p>
+      <p className={styles.ctaNote}>Takes 2–3 minutes. No spam. Just clarity.</p>
     </div>
   )
 }

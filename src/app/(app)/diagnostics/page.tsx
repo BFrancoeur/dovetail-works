@@ -1,7 +1,7 @@
 import { LandingHeader } from '@/components/organisms/LandingHeader/LandingHeader'
 import { LandingHero } from '@/components/organisms/LandingHero/LandingHero'
+import { LandingFooter } from '@/components/organisms/LandingFooter/LandingFooter'
 import { DiagnosticsForm } from '@/components/organisms/DiagnosticsForm/DiagnosticsForm'
-import { SiteFooter } from '@/components/organisms/SiteFooter/SiteFooter'
 import { ChecklistItem } from '@/components/atoms/ChecklistItem/ChecklistItem'
 import styles from './page.module.css'
 
@@ -10,19 +10,6 @@ const heroBadges = [
   { text: 'Takes 2–3 minutes' },
   { text: 'No fluff—just clarity' },
   { text: 'No spam. Just insights.' },
-]
-
-const willLearn = [
-  { text: 'Where your leads', bold: 'are breaking down' },
-  { text: "What's costing you", bold: 'time and money' },
-  { text: 'What to fix first', bold: 'for better jobs' },
-]
-
-const willDiscover = [
-  { text: 'Why', bold: "you're getting the wrong leads" },
-  { text: 'Where', bold: 'your process is breaking down' },
-  { text: "What's costing", bold: 'you time and money' },
-  { text: 'What to fix first' },
 ]
 
 export default function DiagnosticsPage() {
@@ -40,20 +27,20 @@ export default function DiagnosticsPage() {
         badges={heroBadges}
       />
 
-      {/* Main content */}
       <section className={`section ${styles.section}`}>
         <div className="container">
           <div className={styles.grid}>
 
             {/* Left — learning outcomes */}
             <div className={styles.left}>
+
               <div className={styles.block}>
                 <h2 className={styles.blockHeading}>Here's What You'll Learn</h2>
                 <div className={styles.checkBox}>
                   <ul className={styles.checkList}>
-                    {willLearn.map(({ text, bold }, i) => (
-                      <ChecklistItem key={i} bold={bold}>{text}</ChecklistItem>
-                    ))}
+                    <ChecklistItem><strong>Where your leads</strong> are breaking down</ChecklistItem>
+                    <ChecklistItem><strong>What's costing you</strong> time and money</ChecklistItem>
+                    <ChecklistItem><strong>What to fix first</strong> for better jobs</ChecklistItem>
                   </ul>
                 </div>
               </div>
@@ -62,9 +49,10 @@ export default function DiagnosticsPage() {
                 <h2 className={styles.blockHeading}>What You'll Discover</h2>
                 <div className={styles.checkBox}>
                   <ul className={styles.checkList}>
-                    {willDiscover.map(({ text, bold }, i) => (
-                      <ChecklistItem key={i} bold={bold}>{text}</ChecklistItem>
-                    ))}
+                    <ChecklistItem><strong>Why</strong> you're getting the wrong leads</ChecklistItem>
+                    <ChecklistItem><strong>Where</strong> your process is breaking down</ChecklistItem>
+                    <ChecklistItem><strong>What's costing</strong> you time and money</ChecklistItem>
+                    <ChecklistItem><strong>What to fix first</strong></ChecklistItem>
                   </ul>
                 </div>
               </div>
@@ -76,6 +64,7 @@ export default function DiagnosticsPage() {
                   what's been holding them back.
                 </p>
               </div>
+
             </div>
 
             {/* Right — multi-step form */}
@@ -91,7 +80,7 @@ export default function DiagnosticsPage() {
         </div>
       </section>
 
-      <SiteFooter />
+      <LandingFooter />
     </>
   )
 }

@@ -39,6 +39,7 @@
 .checkBox {
   background-color: var(--color-background);
   border: var(--border-width-sm) solid var(--color-border);
+  border-left: var(--border-width-lg) solid var(--color-secondary);
   border-radius: var(--border-radius-md);
   padding: var(--space-lg);
 }
