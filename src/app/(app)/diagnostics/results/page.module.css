@@ -1,0 +1,216 @@
+.section {
+  background-color: var(--color-surface);
+}
+
+/* Generating banner */
+.generatingBanner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md);
+  background-color: var(--color-icon-bg-secondary);
+  border: var(--border-width-sm) solid var(--color-secondary);
+  border-radius: var(--border-radius-md);
+  padding: var(--space-md) var(--space-lg);
+  font-size: var(--font-size-sm);
+  color: var(--color-text);
+  margin-bottom: var(--space-2xl);
+}
+
+.refreshBtn {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-primary);
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-decoration: underline;
+  flex-shrink: 0;
+}
+
+/* Section heading */
+.sectionHeading {
+  font-size: var(--font-size-h2);
+  color: var(--color-text);
+  margin-bottom: var(--space-xl);
+}
+
+/* Two equal cards */
+.twoCards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-md);
+  margin-bottom: var(--space-xl);
+}
+
+@media (min-width: 640px) {
+  .twoCards {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.card {
+  background-color: var(--color-background);
+  border: var(--border-width-sm) solid var(--color-border);
+  border-radius: var(--border-radius-md);
+  padding: var(--space-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.cardTitleRow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.cardIcon {
+  font-size: var(--icon-svg-md);
+}
+
+.cardTitle {
+  font-size: var(--font-size-h4);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text);
+}
+
+.checkList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+/* System problem callout */
+.callout {
+  background-color: var(--color-background);
+  border: var(--border-width-sm) solid var(--color-border);
+  border-left: var(--border-width-lg) solid var(--color-secondary);
+  border-radius: var(--border-radius-md);
+  padding: var(--space-xl);
+  margin-bottom: var(--space-xl);
+}
+
+.calloutTitle {
+  font-size: var(--font-size-h3);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text);
+  margin-bottom: var(--space-sm);
+}
+
+.calloutBody {
+  font-size: var(--font-size-base);
+  color: var(--color-text-med-muted);
+  line-height: var(--line-height-loose);
+  max-width: none;
+}
+
+/* Two column costs vs wants */
+.twoCol {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-xl);
+  margin-bottom: var(--space-2xl);
+}
+
+@media (min-width: 640px) {
+  .twoCol {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.colHeading {
+  font-size: var(--font-size-h4);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text);
+  margin-bottom: var(--space-md);
+}
+
+/* CTA box */
+.ctaBox {
+  background-color: var(--color-background);
+  border: var(--border-width-sm) solid var(--color-border);
+  border-radius: var(--border-radius-lg);
+  padding: var(--space-2xl);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-md);
+  margin-bottom: var(--space-xl);
+}
+
+.ctaHeading {
+  font-size: var(--font-size-h2);
+  color: var(--color-text);
+}
+
+.ctaBody {
+  font-size: var(--font-size-base);
+  color: var(--color-text-med-muted);
+  max-width: 52ch;
+  line-height: var(--line-height-loose);
+}
+
+.ctaNote {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  font-style: italic;
+  max-width: none;
+}
+
+.ctaTrust {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  max-width: none;
+}
+
+.ctaTrust em { font-style: italic; }
+
+.ctaBadges {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-lg);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+}
+
+.check {
+  color: var(--color-secondary);
+  font-weight: var(--font-weight-bold);
+  margin-right: var(--space-xs);
+}
+
+/* Download row */
+.downloadRow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-2xl);
+  padding-top: var(--space-xl);
+  border-top: var(--border-width-sm) solid var(--color-border);
+}
+
+.downloadNote {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+  max-width: none;
+}
+
+/* Trust line */
+.trustLine {
+  text-align: center;
+  font-size: var(--font-size-base);
+  color: var(--color-text-muted);
+  max-width: none;
+}
+
+/* ── Print styles ─────────────────────────────────────────────────────────── */
+@media print {
+  .generatingBanner,
+  .downloadRow { display: none; }
+
+  .ctaBox { border: 2px solid #ccc; }
+}

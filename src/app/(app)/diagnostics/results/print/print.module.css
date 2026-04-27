@@ -1,0 +1,202 @@
+/* Print-optimized report styles */
+
+.body {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 11pt;
+  color: #232323;
+  background: #fff;
+  margin: 0;
+  padding: 0;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+.page {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 40px 48px;
+}
+
+/* Header */
+.header {
+  text-align: center;
+  border-bottom: 2px solid #ff9100;
+  padding-bottom: 16px;
+  margin-bottom: 24px;
+}
+
+.logo {
+  font-family: 'Lora', serif;
+  font-size: 20pt;
+  font-weight: 700;
+  color: #232323;
+  margin: 0;
+}
+
+.logoSub {
+  font-size: 10pt;
+  color: #707070;
+  margin: 4px 0 0;
+}
+
+/* Title block */
+.titleBlock {
+  margin-bottom: 28px;
+}
+
+.reportLabel {
+  font-size: 8pt;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #ff9100;
+  margin: 0 0 8px;
+}
+
+.headline {
+  font-family: 'Lora', serif;
+  font-size: 20pt;
+  font-weight: 700;
+  color: #232323;
+  line-height: 1.2;
+  margin: 0 0 10px;
+}
+
+.subheadline {
+  font-size: 11pt;
+  color: #3f3f3f;
+  line-height: 1.6;
+  margin: 0 0 10px;
+}
+
+.recipient {
+  font-size: 10pt;
+  color: #707070;
+  margin: 8px 0 0;
+}
+
+/* Two column layout */
+.twoCol {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+/* Sections */
+.section {
+  background: #f0f2f5;
+  border-radius: 6px;
+  padding: 16px;
+}
+
+.sectionTitle {
+  font-family: 'Lora', serif;
+  font-size: 12pt;
+  font-weight: 700;
+  color: #232323;
+  margin: 0 0 10px;
+}
+
+/* Lists */
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.listItem {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  font-size: 10pt;
+  color: #232323;
+  line-height: 1.4;
+}
+
+.check {
+  color: #ff9100;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+/* Callout */
+.callout {
+  background: #fff8ed;
+  border-left: 4px solid #ff9100;
+  border-radius: 4px;
+  padding: 16px 20px;
+  margin-bottom: 20px;
+}
+
+.calloutTitle {
+  font-family: 'Lora', serif;
+  font-size: 13pt;
+  font-weight: 700;
+  color: #232323;
+  margin: 0 0 8px;
+}
+
+.calloutBody {
+  font-size: 10pt;
+  color: #3f3f3f;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* CTA block */
+.ctaBlock {
+  background: #1a1a1a;
+  color: #fcfff0;
+  border-radius: 8px;
+  padding: 24px 28px;
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.ctaTitle {
+  font-family: 'Lora', serif;
+  font-size: 16pt;
+  font-weight: 700;
+  color: #fcfff0;
+  margin: 0 0 10px;
+}
+
+.ctaBody {
+  font-size: 11pt;
+  color: rgba(252,255,240,0.80);
+  line-height: 1.6;
+  margin: 0 0 10px;
+}
+
+.ctaUrl {
+  font-size: 12pt;
+  font-weight: 700;
+  color: #ff9100;
+  margin: 0 0 10px;
+}
+
+.ctaBadges {
+  font-size: 9pt;
+  color: rgba(252,255,240,0.60);
+  margin: 0;
+}
+
+/* Footer */
+.footer {
+  border-top: 1px solid #e5e7eb;
+  padding-top: 12px;
+  text-align: center;
+  font-size: 8pt;
+  color: #707070;
+  line-height: 1.6;
+}
+
+/* Print-specific */
+@media print {
+  .page { padding: 0; max-width: 100%; }
+  .ctaBlock { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}

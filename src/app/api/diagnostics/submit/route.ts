@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server'
 import { getPayload } from 'payload'
 import config from '@/payload.config'
 import { sendToCRM } from '@/lib/crm'
+import { generateReport } from '@/lib/generateReport'
 
 export async function POST(req: NextRequest) {
   try {
@@ -12,45 +13,64 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'Email is required.' }, { status: 400 })
     }
 
-    // ── Save submission to Payload ────────────────────────────────────────
     const payload = await getPayload({ config })
 
+    // Save submission with pending status
     const submission = await payload.create({
       collection: 'diagnostic-submissions',
       data: {
         email: answers.email,
         firstName: answers.firstName,
         companyName: answers.companyName,
-        annualRevenue: undefined, // not collected in form yet
         responses: answers,
         reportStatus: 'pending',
         createdAt: new Date().toISOString(),
       },
     })
 
-    // ── Send to CRM (non-blocking — failure doesn't break the user flow) ──
-    sendToCRM({
-      email: answers.email,
-      firstName: answers.firstName,
-      companyName: answers.companyName,
-      source: 'diagnostics-form',
-      submissionId: String(submission.id),
-      tags: ['diagnostics-form', 'lead'],
-      customFields: {
-        workType: answers.workType ?? '',
-        projectSize: answers.projectSize ?? '',
-        monthlyLeads: answers.monthlyLeads ?? '',
-        leadSource: answers.leadSource ?? '',
-        responseTime: answers.responseTime ?? '',
-        biggestProblem: answers.biggestProblem ?? '',
-        followUp: answers.followUp ?? '',
-      },
-    }).catch((err) => {
-      // Log but don't fail the request — CRM errors shouldn't block the user
-      console.error('[CRM] Failed to send contact:', err)
-    })
+    const submissionId = String(submission.id)
 
-    return NextResponse.json({ id: submission.id, status: 'pending' }, { status: 201 })
+    // Fire CRM and report generation concurrently — neither blocks the response
+    Promise.all([
+      sendToCRM({
+        email: answers.email,
+        firstName: answers.firstName,
+        companyName: answers.companyName,
+        source: 'diagnostics-form',
+        submissionId,
+        tags: ['diagnostics-form', 'lead'],
+        customFields: {
+          workType: answers.workType ?? '',
+          projectSize: answers.projectSize ?? '',
+          monthlyLeads: answers.monthlyLeads ?? '',
+          leadSource: answers.leadSource ?? '',
+          responseTime: answers.responseTime ?? '',
+          biggestProblem: answers.biggestProblem ?? '',
+          followUp: answers.followUp ?? '',
+        },
+      }),
+      generateReport(answers)
+        .then(async (report) => {
+          await payload.update({
+            collection: 'diagnostic-submissions',
+            id: submission.id,
+            data: {
+              responses: { ...answers, _report: JSON.stringify(report) },
+              reportStatus: 'ready',
+            },
+          })
+        })
+        .catch(async (err) => {
+          console.error('[report generation]', err)
+          await payload.update({
+            collection: 'diagnostic-submissions',
+            id: submission.id,
+            data: { reportStatus: 'failed' },
+          })
+        }),
+    ]).catch((err) => console.error('[background tasks]', err))
+
+    return NextResponse.json({ id: submissionId, status: 'pending' }, { status: 201 })
   } catch (err) {
     console.error('[diagnostics/submit]', err)
     return NextResponse.json({ error: 'Submission failed. Please try again.' }, { status: 500 })
