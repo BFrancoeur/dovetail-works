@@ -123,13 +123,32 @@ export function DiagnosticsForm() {
 
   async function handleNext() {
     if (!stepIsComplete()) return
+
     if (isLastStep) {
       setSubmitting(true)
-      // Store answers in sessionStorage for the results page
-      sessionStorage.setItem('diagnosticAnswers', JSON.stringify(answers))
-      router.push('/diagnostics/results')
+      try {
+        const res = await fetch('/api/diagnostics/submit', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ answers }),
+        })
+
+        if (!res.ok) {
+          const data = await res.json()
+          alert(data.error ?? 'Something went wrong. Please try again.')
+          setSubmitting(false)
+          return
+        }
+
+        const { id } = await res.json()
+        router.push(`/diagnostics/results?id=${id}`)
+      } catch {
+        alert('Network error. Please check your connection and try again.')
+        setSubmitting(false)
+      }
       return
     }
+
     setStep((s) => s + 1)
   }
 
