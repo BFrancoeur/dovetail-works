@@ -1,6 +1,6 @@
 import { LandingHeader } from '@/components/organisms/LandingHeader/LandingHeader'
 import { LandingHero } from '@/components/organisms/LandingHero/LandingHero'
-import { LandingFooter } from '@/components/organisms/LandingFooter/LandingFooter'
+import { SiteFooter } from '@/components/organisms/SiteFooter/SiteFooter'
 import { DiagnosticsForm } from '@/components/organisms/DiagnosticsForm/DiagnosticsForm'
 import { ChecklistItem } from '@/components/atoms/ChecklistItem/ChecklistItem'
 import styles from './page.module.css'
@@ -80,7 +80,7 @@ export default function DiagnosticsPage() {
         </div>
       </section>
 
-      <LandingFooter />
+      <SiteFooter />
     </>
   )
 }
