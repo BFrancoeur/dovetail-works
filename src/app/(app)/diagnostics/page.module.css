@@ -1,0 +1,85 @@
+.section {
+  background-color: var(--color-surface);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-2xl);
+  margin-bottom: var(--space-2xl);
+}
+
+@media (min-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+    gap: var(--space-3xl);
+  }
+}
+
+/* Left column */
+.left {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
+}
+
+.block {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.blockHeading {
+  font-size: var(--font-size-h3);
+  color: var(--color-text);
+  font-weight: var(--font-weight-bold);
+}
+
+.checkBox {
+  background-color: var(--color-background);
+  border: var(--border-width-sm) solid var(--color-border);
+  border-radius: var(--border-radius-md);
+  padding: var(--space-lg);
+}
+
+.checkList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.timeBlock {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.timeHeading {
+  font-size: var(--font-size-h4);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text);
+}
+
+.timeText {
+  font-size: var(--font-size-base);
+  color: var(--color-text-muted);
+  line-height: var(--line-height-loose);
+  max-width: 42ch;
+}
+
+/* Right column */
+.right {
+  position: sticky;
+  top: var(--space-lg);
+}
+
+/* Trust line */
+.trustLine {
+  text-align: center;
+  font-size: var(--font-size-base);
+  color: var(--color-text-muted);
+  max-width: none;
+  border-top: var(--border-width-sm) solid var(--color-border);
+  padding-top: var(--space-xl);
+}

@@ -1,0 +1,190 @@
+.card {
+  background-color: var(--color-background);
+  border: var(--border-width-sm) solid var(--color-border);
+  border-radius: var(--border-radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+}
+
+/* Card header */
+.cardHeader {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-md) var(--space-lg);
+  background-color: var(--color-surface);
+  border-bottom: var(--border-width-sm) solid var(--color-border);
+}
+
+.cardIcon {
+  font-size: var(--icon-svg-md);
+}
+
+.cardTitle {
+  font-family: var(--font-heading);
+  font-size: var(--font-size-h4);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text);
+}
+
+/* Progress bar */
+.stepBar {
+  height: 3px;
+  background-color: var(--color-border);
+}
+
+.stepProgress {
+  height: 100%;
+  background-color: var(--color-secondary);
+  transition: width var(--transition-base);
+}
+
+.stepLabel {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-muted);
+  padding: var(--space-md) var(--space-lg) 0;
+  max-width: none;
+}
+
+/* Questions */
+.questions {
+  padding: var(--space-md) var(--space-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.questionGroup {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.questionLabel {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text);
+  max-width: none;
+}
+
+/* Radio grid */
+.radioGrid {
+  display: grid;
+  grid-template-columns: repeat(var(--cols, 2), 1fr);
+  gap: var(--space-sm);
+}
+
+.radioOption {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  cursor: pointer;
+  padding: var(--space-xs) 0;
+}
+
+.radioInput {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.radioCircle {
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+  border-radius: var(--border-radius-full);
+  border: 2px solid var(--color-border);
+  background-color: var(--color-background);
+  transition: border-color var(--transition-fast), background-color var(--transition-fast);
+  position: relative;
+}
+
+.radioCircle::after {
+  content: '';
+  position: absolute;
+  inset: 3px;
+  border-radius: var(--border-radius-full);
+  background-color: var(--color-secondary);
+  opacity: 0;
+  transition: opacity var(--transition-fast);
+}
+
+.selected .radioCircle {
+  border-color: var(--color-secondary);
+}
+
+.selected .radioCircle::after {
+  opacity: 1;
+}
+
+.radioLabel {
+  font-size: var(--font-size-sm);
+  color: var(--color-text);
+  line-height: var(--line-height-snug);
+}
+
+.selected .radioLabel {
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text);
+}
+
+/* Text input */
+.textInput {
+  width: 100%;
+  padding: var(--space-sm) var(--space-md);
+  font-size: var(--font-size-base);
+  color: var(--color-text);
+  background-color: var(--color-background);
+  border: var(--border-width-sm) solid var(--color-border);
+  border-radius: var(--border-radius-md);
+  outline: none;
+  transition: border-color var(--transition-fast);
+}
+
+.textInput:focus {
+  border-color: var(--color-secondary);
+  box-shadow: 0 0 0 3px var(--color-focus-ring);
+}
+
+.textInput::placeholder {
+  color: var(--color-text-muted);
+}
+
+/* CTA */
+.cta {
+  display: block;
+  width: calc(100% - var(--space-lg) * 2);
+  margin: 0 var(--space-lg) var(--space-md);
+  padding: var(--space-md) var(--space-lg);
+  background-color: var(--color-secondary);
+  color: var(--color-dark-neutral);
+  font-family: var(--font-body);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: var(--letter-spacing-wide);
+  text-transform: uppercase;
+  text-align: center;
+  border: none;
+  border-radius: var(--border-radius-sm);
+  cursor: pointer;
+  transition: background-color var(--transition-fast);
+}
+
+.cta:hover:not(:disabled) {
+  background-color: var(--color-secondary-hover);
+}
+
+.cta:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.ctaNote {
+  text-align: center;
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+  padding: 0 var(--space-lg) var(--space-lg);
+  max-width: none;
+}

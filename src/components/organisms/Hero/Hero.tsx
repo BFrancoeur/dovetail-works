@@ -29,7 +29,7 @@ export function Hero() {
           <div>
             <strong>Built for Remodeling Companies</strong>
             <br />
-            Doing $500K–$4M Annually
+            Doing $1M–$4M Annually
           </div>
         </div>
       </div>

@@ -1,0 +1,68 @@
+.header {
+  background-color: var(--color-dark-neutral);
+  border-bottom: var(--border-width-sm) solid var(--color-border-on-dark);
+}
+
+.inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-lg);
+  padding-block: var(--space-md);
+}
+
+.logo {
+  font-family: var(--font-heading);
+  font-size: var(--font-size-h4);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-inverse);
+  text-decoration: none;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.logo:hover {
+  color: var(--color-secondary);
+}
+
+.cities {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+  justify-content: center;
+}
+
+.cityGroup {
+  display: contents;
+}
+
+.navLink {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-on-hero-muted);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.navLink:hover {
+  color: var(--color-text-inverse);
+}
+
+.dot {
+  color: var(--color-text-on-hero-faint);
+  font-size: var(--font-size-sm);
+}
+
+.contact {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-inverse);
+  text-decoration: none;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: color var(--transition-fast);
+}
+
+.contact:hover {
+  color: var(--color-secondary);
+}
