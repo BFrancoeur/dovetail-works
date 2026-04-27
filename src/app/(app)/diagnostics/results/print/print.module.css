@@ -1,60 +1,54 @@
-/* Print-optimized report styles */
-
-.body {
-  font-family: 'Open Sans', sans-serif;
+.page {
+  font-family: var(--font-body);
   font-size: 11pt;
   color: #232323;
   background: #fff;
-  margin: 0;
-  padding: 0;
-  -webkit-print-color-adjust: exact;
-  print-color-adjust: exact;
-}
-
-.page {
   max-width: 720px;
   margin: 0 auto;
   padding: 40px 48px;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
 }
 
 /* Header */
 .header {
   text-align: center;
-  border-bottom: 2px solid #ff9100;
+  border-bottom: 3px solid var(--color-secondary);
   padding-bottom: 16px;
   margin-bottom: 24px;
 }
 
 .logo {
-  font-family: 'Lora', serif;
+  font-family: var(--font-heading);
   font-size: 20pt;
   font-weight: 700;
   color: #232323;
   margin: 0;
+  max-width: none;
 }
 
 .logoSub {
   font-size: 10pt;
   color: #707070;
   margin: 4px 0 0;
+  max-width: none;
 }
 
 /* Title block */
-.titleBlock {
-  margin-bottom: 28px;
-}
+.titleBlock { margin-bottom: 28px; }
 
 .reportLabel {
   font-size: 8pt;
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: #ff9100;
+  color: var(--color-secondary);
   margin: 0 0 8px;
+  max-width: none;
 }
 
 .headline {
-  font-family: 'Lora', serif;
+  font-family: var(--font-heading);
   font-size: 20pt;
   font-weight: 700;
   color: #232323;
@@ -67,15 +61,17 @@
   color: #3f3f3f;
   line-height: 1.6;
   margin: 0 0 10px;
+  max-width: none;
 }
 
 .recipient {
   font-size: 10pt;
   color: #707070;
   margin: 8px 0 0;
+  max-width: none;
 }
 
-/* Two column layout */
+/* Two column */
 .twoCol {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -83,7 +79,6 @@
   margin-bottom: 20px;
 }
 
-/* Sections */
 .section {
   background: #f0f2f5;
   border-radius: 6px;
@@ -91,18 +86,14 @@
 }
 
 .sectionTitle {
-  font-family: 'Lora', serif;
+  font-family: var(--font-heading);
   font-size: 12pt;
   font-weight: 700;
   color: #232323;
   margin: 0 0 10px;
 }
 
-/* Lists */
 .list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
   display: flex;
   flex-direction: column;
   gap: 6px;
@@ -118,7 +109,7 @@
 }
 
 .check {
-  color: #ff9100;
+  color: var(--color-secondary);
   font-weight: 700;
   flex-shrink: 0;
 }
@@ -126,14 +117,14 @@
 /* Callout */
 .callout {
   background: #fff8ed;
-  border-left: 4px solid #ff9100;
+  border-left: 4px solid var(--color-secondary);
   border-radius: 4px;
   padding: 16px 20px;
   margin-bottom: 20px;
 }
 
 .calloutTitle {
-  font-family: 'Lora', serif;
+  font-family: var(--font-heading);
   font-size: 13pt;
   font-weight: 700;
   color: #232323;
@@ -145,12 +136,13 @@
   color: #3f3f3f;
   line-height: 1.6;
   margin: 0;
+  max-width: none;
 }
 
 /* CTA block */
 .ctaBlock {
-  background: #1a1a1a;
-  color: #fcfff0;
+  background: var(--color-dark-neutral);
+  color: var(--color-text-inverse);
   border-radius: 8px;
   padding: 24px 28px;
   margin-bottom: 24px;
@@ -158,10 +150,10 @@
 }
 
 .ctaTitle {
-  font-family: 'Lora', serif;
+  font-family: var(--font-heading);
   font-size: 16pt;
   font-weight: 700;
-  color: #fcfff0;
+  color: var(--color-text-inverse);
   margin: 0 0 10px;
 }
 
@@ -170,19 +162,22 @@
   color: rgba(252,255,240,0.80);
   line-height: 1.6;
   margin: 0 0 10px;
+  max-width: none;
 }
 
 .ctaUrl {
   font-size: 12pt;
   font-weight: 700;
-  color: #ff9100;
+  color: var(--color-secondary);
   margin: 0 0 10px;
+  max-width: none;
 }
 
 .ctaBadges {
   font-size: 9pt;
   color: rgba(252,255,240,0.60);
   margin: 0;
+  max-width: none;
 }
 
 /* Footer */
@@ -195,8 +190,25 @@
   line-height: 1.6;
 }
 
-/* Print-specific */
+/* Screen: hide site chrome on print page */
+@media screen {
+  :global(html) { background: #eee; }
+}
+
+/* Print: hide the app layout nav/footer, just show the report */
 @media print {
-  .page { padding: 0; max-width: 100%; }
-  .ctaBlock { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  :global(header),
+  :global(footer),
+  :global(nav) { display: none !important; }
+
+  .page {
+    padding: 0;
+    max-width: 100%;
+    box-shadow: none;
+  }
+
+  .ctaBlock {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
 }
