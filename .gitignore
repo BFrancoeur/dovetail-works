@@ -30,6 +30,12 @@ nginx/certs/*.key
 # Claude Code local settings
 .claude/
 
+# Agent kill switch — created at runtime, never committed
+.agent-lock
+
+# Database backups — kept locally, synced off-site manually for now
+backups/
+
 # misc
 *.log
 .DS_Store

@@ -15,8 +15,8 @@ export type CRMContact = {
   companyName?: string
   email: string
   phone?: string
-  source: 'diagnostics-form'
-  submissionId: string
+  source: 'diagnostics-form' | 'cal-booking'
+  submissionId?: string
   tags?: string[]
   customFields?: Record<string, string>
 }
@@ -59,7 +59,7 @@ export async function sendToCRM(contact: CRMContact): Promise<CRMResult> {
 
   // Stub — logs to console, always succeeds
   console.log(
-    `[CRM stub] Contact queued | email: ${contact.email} | submission: ${contact.submissionId}`,
+    `[CRM stub] Contact queued | email: ${contact.email} | source: ${contact.source}${contact.submissionId ? ` | submission: ${contact.submissionId}` : ''}`,
   )
   return { success: true }
 }

@@ -1,0 +1,12 @@
+.embed {
+  width: 100%;
+  min-height: 600px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.embed iframe {
+  border: none;
+  width: 100%;
+  min-height: 600px;
+}

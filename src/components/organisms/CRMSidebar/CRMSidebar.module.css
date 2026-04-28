@@ -1,0 +1,113 @@
+.sidebar {
+  width: 220px;
+  flex-shrink: 0;
+  background: var(--color-dark-neutral);
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-lg) var(--space-md);
+  gap: var(--space-xl);
+  overflow-y: auto;
+}
+
+/* Brand */
+.brand {
+  padding-bottom: var(--space-md);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.brandName {
+  font-family: var(--font-heading);
+  font-size: var(--text-base);
+  font-weight: 700;
+  color: var(--color-text-inverse);
+  margin: 0;
+}
+
+.brandSub {
+  font-size: var(--text-xs);
+  color: var(--color-secondary);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin: 2px 0 0;
+}
+
+/* Nav */
+.nav {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.navHeading {
+  font-size: var(--text-xs);
+  font-weight: 700;
+  color: rgba(252,255,240,0.35);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin: 0 0 var(--space-xs);
+}
+
+.navLink {
+  display: block;
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: 6px;
+  font-size: var(--text-sm);
+  color: rgba(252,255,240,0.70);
+  text-decoration: none;
+  transition: background 150ms ease, color 150ms ease;
+}
+
+.navLink:hover {
+  background: rgba(255,255,255,0.07);
+  color: var(--color-text-inverse);
+}
+
+.navLinkActive {
+  background: var(--color-primary);
+  color: #fff !important;
+  font-weight: 600;
+}
+
+/* My Day */
+.myDay {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.emptyTasks {
+  font-size: var(--text-xs);
+  color: rgba(252,255,240,0.35);
+  margin: 0;
+}
+
+.taskItem {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-xs);
+  padding: var(--space-xs) 0;
+}
+
+.taskDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 4px;
+  background: var(--color-secondary);
+}
+
+.taskDot[data-type='call']    { background: #60a5fa; }
+.taskDot[data-type='email']   { background: var(--color-secondary); }
+.taskDot[data-type='meeting'] { background: #34d399; }
+
+.taskTitle {
+  font-size: var(--text-xs);
+  color: rgba(252,255,240,0.75);
+  line-height: 1.4;
+}

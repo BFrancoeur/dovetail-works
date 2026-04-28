@@ -6,6 +6,11 @@ import path from 'path'
 import { fileURLToPath } from 'url'
 
 import { Users } from './collections/Users'
+import { Tenants } from './collections/Tenants'
+import { Contacts } from './collections/Contacts'
+import { PipelineEntries } from './collections/PipelineEntries'
+import { Activities } from './collections/Activities'
+import { Tasks } from './collections/Tasks'
 import { Media } from './collections/Media'
 import { Pages } from './collections/Pages'
 import { Posts } from './collections/Posts'
@@ -42,7 +47,7 @@ export default buildConfig({
     user: 'users',
   },
 
-  collections: [Users, Media, Pages, Posts, Testimonials, DiagnosticSubmissions],
+  collections: [Users, Tenants, Contacts, PipelineEntries, Activities, Tasks, Media, Pages, Posts, Testimonials, DiagnosticSubmissions],
 
   globals: [SiteSettings, MainNav],
 
