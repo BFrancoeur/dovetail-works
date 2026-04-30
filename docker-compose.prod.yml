@@ -65,10 +65,23 @@ services:
     networks:
       - internal_prod
 
+  vault:
+    image: hashicorp/vault:1.17
+    cap_add:
+      - IPC_LOCK
+    volumes:
+      - vault_data_prod:/vault/data
+      - ./vault/config/vault.prod.hcl:/vault/config/vault.hcl:ro
+    command: vault server -config=/vault/config/vault.hcl
+    restart: unless-stopped
+    networks:
+      - internal_prod
+
 volumes:
   pg_data_prod:
   redis_data_prod:
   media_uploads_prod:
+  vault_data_prod:
 
 networks:
   internal_prod:

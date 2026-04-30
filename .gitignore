@@ -31,6 +31,9 @@ nginx/certs/*.key
 # Claude Code local settings
 .claude/
 
+# Vault data — never commit vault storage
+vault/data/
+
 # Agent kill switch — created at runtime, never committed
 .agent-lock
 
