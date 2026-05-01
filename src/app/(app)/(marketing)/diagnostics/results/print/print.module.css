@@ -192,7 +192,9 @@
 
 /* Screen: hide site chrome on print page */
 @media screen {
-  :global(html) { background: #eee; }
+  :global {
+    html { background: #eee; }
+  }
 }
 
 /* Print: hide the app layout nav/footer, just show the report */
