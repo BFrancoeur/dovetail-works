@@ -11,6 +11,10 @@ const nextConfig: NextConfig = {
   },
   // Polling required for HMR inside Docker on Windows (inotify doesn't work through WSL2 bind mounts)
   webpack: (config, { dev }) => {
+    config.resolve.extensionAlias = {
+      '.js': ['.ts', '.tsx', '.js'],
+      '.jsx': ['.tsx', '.jsx'],
+    }
     if (dev) {
       config.watchOptions = {
         poll: 1000,
