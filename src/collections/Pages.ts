@@ -1,10 +1,10 @@
 import type { CollectionConfig } from 'payload'
-import { HeroBlock } from './blocks/HeroBlock.js'
-import { TextSection } from './blocks/TextSection.js'
-import { CTABanner } from './blocks/CTABanner.js'
-import { TestimonialsRow } from './blocks/TestimonialsRow.js'
-import { StatsRow } from './blocks/StatsRow.js'
-import { ArticleGrid } from './blocks/ArticleGrid.js'
+import { HeroBlock } from './blocks/HeroBlock'
+import { TextSection } from './blocks/TextSection'
+import { CTABanner } from './blocks/CTABanner'
+import { TestimonialsRow } from './blocks/TestimonialsRow'
+import { StatsRow } from './blocks/StatsRow'
+import { ArticleGrid } from './blocks/ArticleGrid'
 
 export const Pages: CollectionConfig = {
   slug: 'pages',
