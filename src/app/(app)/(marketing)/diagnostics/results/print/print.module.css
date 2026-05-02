@@ -190,19 +190,8 @@
   line-height: 1.6;
 }
 
-/* Screen: hide site chrome on print page */
-@media screen {
-  :global {
-    html { background: #eee; }
-  }
-}
-
 /* Print: hide the app layout nav/footer, just show the report */
 @media print {
-  :global(header),
-  :global(footer),
-  :global(nav) { display: none !important; }
-
   .page {
     padding: 0;
     max-width: 100%;

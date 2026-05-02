@@ -1,5 +1,6 @@
 import { AutoPrint } from '@/components/organisms/PrintReport/AutoPrint'
 import styles from './print.module.css'
+import './print-globals.css'
 
 export default function PrintPage() {
   return (

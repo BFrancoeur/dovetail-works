@@ -1,0 +1,7 @@
+@media screen {
+  html { background: #eee; }
+}
+
+@media print {
+  header, footer, nav { display: none !important; }
+}
