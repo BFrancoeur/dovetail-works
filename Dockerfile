@@ -24,7 +24,8 @@ CMD ["npm", "run", "dev"]
 FROM base AS migrator
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
-CMD ["node", "--import", "tsx/esm", "scripts/migrate.mts"]
+ENV NODE_OPTIONS="--import tsx/esm"
+CMD ["sh", "-c", "node_modules/.bin/payload migrate:create --name initial; node_modules/.bin/payload migrate"]
 
 # ── builder ───────────────────────────────────────────────────────────────────
 FROM base AS builder
