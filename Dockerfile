@@ -20,6 +20,12 @@ COPY . .
 EXPOSE 3000
 CMD ["npm", "run", "dev"]
 
+# ── migrator ──────────────────────────────────────────────────────────────────
+FROM base AS migrator
+COPY --from=deps /app/node_modules ./node_modules
+COPY . .
+CMD ["sh", "-c", "node_modules/.bin/payload migrate:create --name initial; node_modules/.bin/payload migrate"]
+
 # ── builder ───────────────────────────────────────────────────────────────────
 FROM base AS builder
 COPY --from=deps /app/node_modules ./node_modules
