@@ -1,6 +1,21 @@
 name: dovetail-prod
 
 services:
+  migrator:
+    build:
+      context: .
+      target: migrator
+    env_file: .env.prod
+    environment:
+      DATABASE_URI: postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB}
+      NODE_ENV: development
+    depends_on:
+      postgres:
+        condition: service_healthy
+    restart: 'no'
+    networks:
+      - internal_prod
+
   app:
     build:
       context: .
@@ -18,6 +33,8 @@ services:
         condition: service_healthy
       redis:
         condition: service_healthy
+      migrator:
+        condition: service_completed_successfully
     networks:
       - internal_prod
 
