@@ -2,10 +2,13 @@
 
 import type { ServerFunctionArgs } from 'payload'
 import { handleServerFunctions as _handleServerFunctions } from '@payloadcms/next/layouts'
-import { getPayload } from 'payload'
+import { importMap } from './admin/importMap'
 import config from '../../payload.config'
 
 export async function handleServerFunctions(args: ServerFunctionArgs) {
-  await getPayload({ config })
-  return _handleServerFunctions(args)
+  return _handleServerFunctions({
+    ...args,
+    config,
+    importMap,
+  })
 }
