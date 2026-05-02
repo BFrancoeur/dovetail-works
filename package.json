@@ -1,0 +1,35 @@
+{
+  "name": "dovetail-works",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "payload": "payload",
+    "generate:types": "payload generate:types",
+    "generate:importmap": "payload generate:importmap"
+  },
+  "dependencies": {
+    "next": "15.4.11",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "payload": "^3.0.0",
+    "@payloadcms/next": "^3.0.0",
+    "@payloadcms/db-postgres": "^3.0.0",
+    "@payloadcms/richtext-lexical": "^3.0.0",
+    "@payloadcms/email-nodemailer": "^3.0.0",
+    "nodemailer": "^6.9.0",
+    "sharp": "^0.33.0",
+    "graphql": "^16.9.0",
+    "@anthropic-ai/sdk": "^0.39.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "@types/nodemailer": "^6.4.0",
+    "typescript": "^5.0.0"
+  }
+}
