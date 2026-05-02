@@ -46,11 +46,15 @@ export type StageValue<P extends PipelineKey> =
   (typeof PIPELINES)[P]['stages'][number]['value']
 
 // Flat list of all stages — used for select options in Payload
-export const ALL_STAGES = Object.entries(PIPELINES).flatMap(([pipeline, def]) =>
+// Deduplicated by value since 'lost' appears in multiple pipelines
+const _allStages = Object.entries(PIPELINES).flatMap(([, def]) =>
   def.stages.map((s) => ({
-    label: `${def.label} → ${s.label}`,
+    label: s.label,
     value: s.value,
   })),
+)
+export const ALL_STAGES = _allStages.filter(
+  (s, i) => _allStages.findIndex((x) => x.value === s.value) === i,
 )
 
 // Exit reasons — why a contact left a pipeline stage
