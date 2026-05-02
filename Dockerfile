@@ -24,7 +24,22 @@ CMD ["npm", "run", "dev"]
 FROM base AS migrator
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
-ENV NODE_OPTIONS="--import tsx/esm"
+# Pre-compile payload.config to CJS so the Payload CLI can require() it without tsx,
+# breaking the ESM require() cycle that occurs with TypeScript source files.
+RUN node_modules/.bin/esbuild src/payload.config.ts \
+      --bundle \
+      --format=cjs \
+      --platform=node \
+      --outfile=payload.config.cjs \
+      --external:payload \
+      --external:@payloadcms/db-postgres \
+      --external:@payloadcms/richtext-lexical \
+      --external:@payloadcms/email-nodemailer \
+      --external:nodemailer \
+      --external:sharp \
+      --external:graphql \
+      --external:@anthropic-ai/sdk
+ENV PAYLOAD_CONFIG_PATH=/app/payload.config.cjs
 CMD ["sh", "-c", "node_modules/.bin/payload migrate:create --name initial; node_modules/.bin/payload migrate"]
 
 # ── builder ───────────────────────────────────────────────────────────────────
