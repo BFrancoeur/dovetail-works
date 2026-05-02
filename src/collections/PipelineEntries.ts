@@ -1,6 +1,6 @@
 import type { CollectionConfig } from 'payload'
-import { tenantReadAccess, tenantWriteAccess } from '@/lib/access'
-import { ALL_STAGES, EXIT_REASONS } from '@/lib/pipelines'
+import { tenantReadAccess, tenantWriteAccess } from '../lib/access.ts'
+import { ALL_STAGES, EXIT_REASONS } from '../lib/pipelines.ts'
 
 export const PipelineEntries: CollectionConfig = {
   slug: 'pipeline-entries',

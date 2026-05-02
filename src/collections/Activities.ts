@@ -1,5 +1,5 @@
 import type { CollectionConfig } from 'payload'
-import { tenantReadAccess, tenantWriteAccess, agentOrTeamWriteAccess } from '@/lib/access'
+import { tenantReadAccess, tenantWriteAccess, agentOrTeamWriteAccess } from '../lib/access.ts'
 
 export const Activities: CollectionConfig = {
   slug: 'activities',
