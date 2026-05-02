@@ -24,7 +24,7 @@ CMD ["npm", "run", "dev"]
 FROM base AS migrator
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
-CMD ["node_modules/.bin/tsx", "scripts/migrate.ts"]
+CMD ["node_modules/.bin/tsx", "scripts/migrate.mts"]
 
 # ── builder ───────────────────────────────────────────────────────────────────
 FROM base AS builder
