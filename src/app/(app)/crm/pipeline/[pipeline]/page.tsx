@@ -3,6 +3,8 @@ import { redirect, notFound } from 'next/navigation'
 import { getPayload } from 'payload'
 import config from '@/payload.config'
 import { PIPELINES } from '@/lib/pipelines'
+
+export const dynamic = 'force-dynamic'
 import { KanbanBoard } from '@/components/organisms/KanbanBoard/KanbanBoard'
 import { MetricsBand } from '@/components/organisms/MetricsBand/MetricsBand'
 import type { KanbanPipeline, MetricSnapshot } from '@/types/crm'
